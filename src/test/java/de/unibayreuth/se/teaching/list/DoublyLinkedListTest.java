@@ -109,13 +109,13 @@ class DoublyLinkedListTest {
     @Test
     void testInsert() {
         list.append(new double[]{0.2, 0.4, 0.5, 0.8});
-        list.insert(new DoublyLinkedList.Element(0.1));
+        list.add(new DoublyLinkedList.Element(0.1));
         assertArrayEquals(new double[]{0.1, 0.2, 0.4, 0.5, 0.8}, list.asArray());
         testBeginEndPointers(list);
-        list.insert(new DoublyLinkedList.Element(0.9));
+        list.add(new DoublyLinkedList.Element(0.9));
         assertArrayEquals(new double[]{0.1, 0.2, 0.4, 0.5, 0.8, 0.9}, list.asArray());
         testBeginEndPointers(list);
-        list.insert(new DoublyLinkedList.Element(0.4));
+        list.add(new DoublyLinkedList.Element(0.4));
         assertArrayEquals(new double[]{0.1, 0.2, 0.4, 0.4, 0.5, 0.8, 0.9}, list.asArray());
         testBeginEndPointers(list);
     }

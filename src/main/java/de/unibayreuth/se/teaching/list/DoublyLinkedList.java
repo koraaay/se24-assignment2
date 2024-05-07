@@ -76,9 +76,9 @@ public class DoublyLinkedList {
      * @return Array with list elements (same order)
      */
     public double[] asArray() {
-        double[] array = new double[length+1];
+        double[] array = new double[length];
         Element element = begin;
-        int arrayPos = 1;
+        int arrayPos = 0;
         while (element != null) {
             array[arrayPos] = element.value;
             arrayPos++;
@@ -119,36 +119,6 @@ public class DoublyLinkedList {
         return begin == null && end == null && length == 0;
     }
 
-    /**
-     * Add an element at the correct position in a sorted list
-     * @param e Element to insert into the sorted list
-     */
-    public void insert(Element e) {
-        if (isEmpty()) { // If the list is empty, just append the new element
-            append(e);
-        } else { // Otherwise the element needs to be sorted in...
-            Element pos = begin;
-            Element pred = null;
-            // Find position pos, before which the element is supposed to be located
-            while (pos != null && pos.getValue() < e.getValue()) {
-                pred = pos;
-                pos = pos.getNext();
-            }
-            if (pos == null) { // There is no larger element => append new element to the list
-                append(e);
-            } else { // Add the new element before element at pos
-                e.setNext(pos);
-                pos.setPrev(e);
-                if (pred != null) { // If pos is not first element in list...
-                    e.setPrev(pred);
-                    pred.setNext(e);
-                } else { // If pos is the first element in the list...
-                    begin = e;
-                }
-                length++;
-            }
-        }
-    }
 
     /**
      * Add an element.
